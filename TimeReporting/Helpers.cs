@@ -77,6 +77,9 @@ namespace OutlookAddIn1
                 parsed = Helpers.ParseString(Clipboard.GetText(), @"^Task ([0-9]+):.*$");
                 if (parsed != "")
                     return Convert.ToInt32(parsed);
+                parsed = Helpers.ParseString(Clipboard.GetText(), @"^([0-9]+)$");
+                if (parsed != "")
+                    return Convert.ToInt32(parsed);
             }
             catch (Exception)
             { }
