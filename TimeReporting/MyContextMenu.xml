@@ -3,17 +3,14 @@
   <contextMenus>
     <contextMenu idMso="ContextMenuCalendarView">
       <dynamicMenu id="MyDynamicMenu1" label="Time Reporting" getContent="GetContentLatestReporting"/>
-      <dynamicMenu id="MyDynamicMenu2" label="Time reporting (commits)" getContent="GetContentLatestChangesets"/>
       <button id="MyButton1" getVisible="GetPasteFromClipboardVisible" onAction="PasteFromClipboard" label="Time Reporting (buffer)" />
     </contextMenu>
     <contextMenu idMso="ContextMenuCalendarItem">
       <dynamicMenu id="MyDynamicMenu3" label="Time Reporting" getContent="GetContentLatestReporting"/>
-      <dynamicMenu id="MyDynamicMenu4" label="Time reporting (commits)" getContent="GetContentLatestChangesets"/>
       <button id="MyButton2" getVisible="GetPasteFromClipboardVisible" onAction="PasteFromClipboard" label="Time Reporting (buffer)" />
     </contextMenu>
     <contextMenu idMso="ContextMenuMultipleItems">
       <dynamicMenu id="MyDynamicMenu5" getVisible="GetMultipleItemContextMenuVisible" label="Time Reporting" getContent="GetContentLatestReporting"/>
-      <dynamicMenu id="MyDynamicMenu6" getVisible="GetMultipleItemContextMenuVisible" label="Time reporting (commits)" getContent="GetContentLatestChangesets"/>
       <button id="MyButton3" getVisible="GetPasteFromClipboardVisible" onAction="PasteFromClipboard" label="Time Reporting (buffer)" />
     </contextMenu>
   </contextMenus>  

@@ -109,45 +109,6 @@ namespace OutlookAddIn1
             return builder.ToString();
         }
 
-        public string GetContentLatestChangesets(Office.IRibbonControl control)
-        {            
-            StringBuilder builder = new StringBuilder(@"<menu xmlns=""http://schemas.microsoft.com/office/2006/01/customui"" >");
-            HashSet<int> hashSet = new HashSet<int>();
-            foreach (Changeset ch in Globals.ThisAddIn._tfs.GetMyChangesets())
-            {
-                foreach (AssociatedWorkItemInfo workItem in ch.AssociatedWorkItems)
-                {
-                    Helpers.DebugInfo("Changeset parsing: changeset: " + ch.ChangesetId + " workitem: " + workItem.Id);
-                    if (workItem.WorkItemType == "Task")
-                    {
-                        if (hashSet.Contains(workItem.Id))
-                            continue;
-                        hashSet.Add(workItem.Id);
-                        string text = Helpers.GenerateSubject(workItem.Id, workItem.Title);
-                        string tag = Helpers.GenerateSubject(workItem.Id, "");
-                        builder.Append(@"<button id=""button" + hashSet.Count() + @""" label=""" +
-                            System.Security.SecurityElement.Escape(text) + @""" onAction=""OnAction"" tag=""" + tag + @""" />");
-                    }
-                    else if (Settings.includeMyChildTasksInCommitList)
-                    {                        
-                        foreach (WorkItem workItem2 in Globals.ThisAddIn._tfs.GetChildTasks(workItem.Id))
-                        {
-                            Helpers.DebugInfo("Changeset parsing: changeset: " + ch.ChangesetId + " workitem: " + workItem2.Id);
-                            if (workItem2.Type.ToString() != "Task" || hashSet.Contains(workItem2.Id))
-                                continue;
-                            hashSet.Add(workItem2.Id);                            
-                            string text = Helpers.GenerateSubject(workItem2.Id, workItem2.Title);
-                            string tag = Helpers.GenerateSubject(workItem2.Id, "");
-                            builder.Append(@"<button id=""button" + hashSet.Count() + @""" label=""" +
-                                System.Security.SecurityElement.Escape(text) + @""" onAction=""OnAction"" tag=""" + tag + @""" />");
-                        }
-                    }
-                }
-            }
-            builder.Append(@"</menu>");
-            return builder.ToString();
-        }
-
         #region IRibbonExtensibility Members
 
         public string GetCustomUI(string ribbonID)

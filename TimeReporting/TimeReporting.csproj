@@ -40,7 +40,7 @@
     <PublishUrl>d:\addin\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.5.0.145</ApplicationVersion>
+    <ApplicationVersion>1.6.0.148</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -48,7 +48,7 @@
     <ProductName>TimeReporting</ProductName>
     <PublisherName>Alexander.Rezunov%40materialise.kiev.ua</PublisherName>
     <SupportUrl />
-    <FriendlyName>TimeReporting 1.5.0</FriendlyName>
+    <FriendlyName>TimeReporting 1.6.0</FriendlyName>
     <OfficeApplicationDescription>TimeReporting</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
@@ -234,6 +234,7 @@
       <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
+    <None Include="TimeReporting_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyContextMenu.xml">
@@ -248,18 +249,18 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>OutlookAddIn1_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>D1CD7DA187EBA7524144546A1D5641A7348F291B</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TimeReporting_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3324EBEEAB728C0689C748A6AD100299D14ACEE6</ManifestCertificateThumbprint>
+  </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- Include additional build rules for an Office application add-in. -->
