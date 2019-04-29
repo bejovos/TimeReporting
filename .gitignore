@@ -1,6 +1,7 @@
 ﻿.vs/
 bin/
 obj/
+TimeReporting/packages
 *.vspscc
 *.user
 *.psess
