@@ -86,6 +86,7 @@ namespace OutlookAddIn1
             {
                 var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey("TimeReporting");
                 RegistryHelpers.ReadValue<string>(ref Settings.debugFile, key, "DebugFile");
+                RegistryHelpers.ReadValue<string>(ref ConnectionWithTFS.tfsLocation, key, "TfsLocation");
                 RegistryHelpers.ReadValue<bool>(ref Settings.showMessageBoxWhenAppointementCreated, key, "ShowMessageBoxWhenAppointementCreated");
                 RegistryHelpers.ReadValue<bool>(ref Settings.showMessageBoxWhenAppointementEdited, key, "ShowMessageBoxWhenAppointementEdited");
                 RegistryHelpers.ReadValue<bool>(ref Settings.showMessageBoxWhenAppointementDeleted, key, "ShowMessageBoxWhenAppointementDeleted");

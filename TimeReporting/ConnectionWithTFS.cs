@@ -9,13 +9,14 @@ namespace OutlookAddIn1
 {
     public class ConnectionWithTFS
     {
+        public static string tfsLocation = "https://tfs.materialise.net/tfs/Software/";
         private TfsTeamProjectCollection tfs = null;
         private TfsTeamProjectCollection GetTFS()
         {
             if (tfs == null)
             {
-                Helpers.DebugInfo("Trying to connect to tfs.materialise.net:443");
-                tfs = new TfsTeamProjectCollection(new System.Uri("https://tfs.materialise.net:443/tfs/Materialise%20Software"));                
+                Helpers.DebugInfo("Trying to connect to materialise");
+                tfs = new TfsTeamProjectCollection(new System.Uri(tfsLocation));                
             }                
             return tfs;
         }
